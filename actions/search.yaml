@@ -1,6 +1,6 @@
 ---
 name: search
-runner_type: run-python
+runner_type: python-script
 description: Splunk one-shot search
 entry_point: search.py
 parameters:
