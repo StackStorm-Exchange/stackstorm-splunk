@@ -1,4 +1,5 @@
 import splunklib.client as client
+import splunklib.results as results
 
 from st2actions.runners.pythonrunner import Action
 
@@ -20,7 +21,17 @@ class OneShotSearch(Action):
             scheme=self.config.get('scheme'))
 
     def run(self, query):
-        kwargs_oneshot = {"output_mode": "json"}
-        result = self.service.jobs.oneshot(query, **kwargs_oneshot)
+        result = self.service.jobs.oneshot(query, params={"output_mode": "json"})
+        reader = results.ResultsReader(result)
+        search_results = []
 
-        return result.read()
+        for item in reader:
+            if isinstance(item, results.Message):
+                # Diagnostic messages may be returned in the results
+                # print '%s: %s' % (item.type, item.message)
+                self.logger.info('%s: %s' % (item.type, item.message))
+            elif isinstance(item, dict):
+                # Normal events are returned as dicts
+                search_results.append(item)
+
+        return search_results
