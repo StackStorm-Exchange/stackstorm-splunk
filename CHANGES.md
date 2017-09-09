@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.5.1
+
+- Removed unused `version` string from `config.schema.yaml
+ 
 ## 0.5.0
 
 - Update splunk.search to use splunklib.results.ResultsReader to return formatted results,

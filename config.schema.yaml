@@ -26,9 +26,3 @@
     secret: false
     required: false
     default: "https"
-  version:
-    description: "Splunk API version"
-    type: "string"
-    secret: false
-    required: false
-    default: "5.0"
