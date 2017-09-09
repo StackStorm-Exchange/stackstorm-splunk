@@ -4,4 +4,3 @@ port: 8089
 username: admin
 password: admin
 scheme: https
-version: '5.0'

@@ -1,6 +1,6 @@
 # Splunk Integration Pack
 
-Basic integration with Splunk Enterprise, Splunk Cloud, or Splunk Light: http://www.splunk.com/en\_us/products.html
+Basic integration with Splunk Enterprise, Splunk Cloud, or Splunk Light: http://www.splunk.com/en_us/products.html
 
 ## Configuration
 
