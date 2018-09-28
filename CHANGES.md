@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.6.0
+
+- Added the ability to disable SSL validation using `verify: false` in `splunk.yaml`
+
 ## 0.5.1
 
 - Removed unused `version` string from `config.schema.yaml

@@ -26,3 +26,9 @@
     secret: false
     required: false
     default: "https"
+  verify:
+    description: "Check the validity of the SSL certificate returned by Splunk"
+    type: "boolean"
+    secret: false
+    required: false
+    default: true
