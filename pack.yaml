@@ -6,7 +6,7 @@ keywords:
   - splunk
   - monitoring
   - alerting
-version: 0.6.0
+version: 0.6.1
 author : StackStorm, Inc.
 email : info@stackstorm.com
 python_versions:

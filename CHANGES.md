@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.6.1
+
+- Add explicit support for Python 2 and 3
+
 ## 0.6.0
 
 - Added the ability to disable SSL validation using `verify: false` in `splunk.yaml`
