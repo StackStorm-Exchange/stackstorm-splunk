@@ -5,3 +5,5 @@ username: admin
 password: admin
 scheme: https
 verify: true
+hec_endpoint: /services/collector
+hec_port: 8088
