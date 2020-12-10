@@ -27,6 +27,4 @@ class SendLogAction(Action):
         if r.status_code == 200:
             return (True, r.status_code)
         else:
-            
             return (False, r.status_code + ' ' + r.reason)
-            
