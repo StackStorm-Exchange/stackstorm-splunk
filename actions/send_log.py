@@ -13,10 +13,10 @@ class SendLogAction(Action):
         self.url=scheme + '://' + host + ':' + port + endpoint
 
     def run(self, index, token, event):
-        event_headers={'Authorization': 'Splunk ' + token, 'Content-Type': 'application/json'}
-        event_payload=json.dumps({"sourcetype": "json", "index": index, "event": event})
+        event_headers = {'Authorization': 'Splunk ' + token, 'Content-Type': 'application/json'}
+        event_payload = json.dumps({"sourcetype": "json", "index": index, "event": event})
 
-        r=requests.post(
+        r = requests.post(
             url=self.url, 
             headers=event_headers, 
             data=event_payload,
