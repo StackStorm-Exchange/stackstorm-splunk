@@ -1,5 +1,9 @@
 # Change Log
 
+## 0.6.2
+
+- Added feature to send logs to Splunk via Hec (Http Event Collector)
+
 ## 0.6.1
 
 - Add explicit support for Python 2 and 3

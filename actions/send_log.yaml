@@ -1,0 +1,22 @@
+---
+  name: "sendlog"
+  runner_type: "python-script"
+  description: "Action to send log to Splunk via API."
+  enabled: true
+  entry_point: "sendlog.py"
+  parameters:
+    index:
+      type: "string"
+      description: "Index name to receive logs"
+      required: true
+      position: 0
+    token:
+      type: "string"
+      description: "Splunk token for authentication"
+      required: true
+      position: 1
+    event:
+      type: "string"
+      description: "Event message to be sent to Splunk"
+      required: true
+      position: 2
