@@ -19,7 +19,8 @@ class OneShotSearch(Action):
             username=self.config.get('username'),
             password=self.config.get('password'),
             scheme=self.config.get('scheme'),
-            verify=self.config.get('verify'))
+            verify=self.config.get('verify'),
+            autologin=True)
 
     def run(self, query):
         result = self.service.jobs.oneshot(query, params={"output_mode": "json"})
