@@ -71,4 +71,4 @@ into StackStorm
 
 Active pack maintainers with review & write repository access and expertise with Splunk:
 
-* Sean Elliott ([@satellite-no](https://github.com/satellite-no)), deepwatch
+* Sean Elliott ([@satellite-no](https://github.com/satellite-no)), <satellite-no@users.noreply.github.com> deepwatch
