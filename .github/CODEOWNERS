@@ -13,4 +13,4 @@
 # CI configuration files should be reviewed by specific owners
 # who are more responsible for ensuring the quality of this pack
 # or orchestrate StackStorm-Exchanges.
-.circleci/**  @StackStorm-Exchange/tsc
+.github/**  @StackStorm-Exchange/tsc
