@@ -66,3 +66,9 @@ No sensors yet...but pull requests welcome!
 
 See https://stackstorm.com/2016/10/21/auto-remediation-stackstorm-splunk/ for an example of how to submit events from Splunk
 into StackStorm
+
+## Maintainers
+
+Active pack maintainers with review & write repository access and expertise with Splunk:
+
+* Sean Elliott ([@satellite-no](https://github.com/satellite-no)), deepwatch
