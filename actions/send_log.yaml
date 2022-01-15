@@ -7,7 +7,7 @@
   parameters:
     splunk_instance:
       type: "string"
-      description: "Splunk instance to send event to"
+      description: "Splunk instance to send too (must be in config.yaml)"
       required: true
       position: 0
     index:
