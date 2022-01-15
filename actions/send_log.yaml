@@ -5,18 +5,23 @@
   enabled: true
   entry_point: "sendlog.py"
   parameters:
+    splunk_instance:
+      type: "string"
+      description: "Splunk instance to send event to"
+      required: true
+      position: 0
     index:
       type: "string"
       description: "Index name to receive logs"
       required: true
-      position: 0
+      position: 1
     token:
       type: "string"
       description: "Splunk token for authentication"
       required: true
-      position: 1
+      position: 2
     event:
       type: "string"
       description: "Event message to be sent to Splunk"
       required: true
-      position: 2
+      position: 3
