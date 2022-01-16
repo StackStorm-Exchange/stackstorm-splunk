@@ -23,12 +23,12 @@ class OneShotSearch(Action):
         else:
             raise ValueError("No Splunk configuration details found")
 
-    def run(self, host, query):
+    def run(self, instance, query):
         # Find config details
-        if host:
-            splunk_config = self.config['splunk_instances'].get(host)
+        if instance:
+            splunk_config = self.config['splunk_instances'].get(instance)
         else:
-            raise ValueError("No host specified in action")
+            splunk_config = self.config['splunk_instances'].get('default')
 
         try:    
             self.service = client.connect(

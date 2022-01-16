@@ -1,42 +1,47 @@
 ---
 splunk_instances:
-  description: "Splunk instances"
-  type: "array"
+  type: "object"
   required: true
-  items:
-    type: "object"
-    required: true
-    properties:
-      host:
-        description: "Splunk server"
-        type: "string"
-        secret: false
-        required: true
-      port:
-        description: "Splunk port (default 8089)"
-        type: "integer"
-        secret: false
-        required: true
-        default: 8089
-      username:
-        description: "Splunk username"
-        type: "string"
-        secret: false
-        required: true
-      password:
-        description: "Splunk password"
-        type: "string"
-        secret: true
-        required: true
-      scheme:
-        description: "Protocol used for Splunk API - http or https"
-        type: "string"
-        secret: false
-        required: false
-        default: "https"
-      verify:
-        description: "Check the validity of the SSL certificate returned by Splunk"
-        type: "boolean"
-        secret: false
-        required: false
-        default: true
+  patternProperties:
+      "^\\w+":
+        "$ref": "#/properties/splunk_instance"
+  additionalProperties: false
+
+splunk_instance:
+  type: "object"
+  properties:
+    host:
+      description: "Splunk server"
+      type: "string"
+      secret: false
+      required: true
+    port:
+      description: "Splunk port (default 8089)"
+      type: "integer"
+      secret: false
+      required: true
+      default: 8089
+    username:
+      description: "Splunk username"
+      type: "string"
+      secret: false
+      required: true
+    password:
+      description: "Splunk password"
+      type: "string"
+      secret: true
+      required: true
+    scheme:
+      description: "Protocol used for Splunk API - http or https"
+      type: "string"
+      secret: false
+      required: false
+      default: "https"
+    verify:
+      description: "Check the validity of the SSL certificate returned by Splunk"
+      type: "boolean"
+      secret: false
+      required: false
+      default: true
+  additionalProperties: false
+      
