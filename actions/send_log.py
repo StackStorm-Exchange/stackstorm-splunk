@@ -29,16 +29,15 @@ class SendLogAction(Action):
         else:
             splunk_config = self.config['splunk_instances'].get('default')
 
-        try:    
+        try:
             host = splunk_config.get('host')
             port = splunk_config.get('hec_port')
             scheme = splunk_config.get('scheme')
             endpoint = splunk_config.get('hec_endpoint')
             self.url = scheme + '://' + host + ':' + str(port) + endpoint
-        except:
+        except BaseException as err:
             raise Exception(
-                "Failed to connect to Splunk Instance {} with error {}".format(splunk_config,
-                                                                                  "TBD")
+                "Failed to connect to Splunk Instance {} with error {}".format(splunk_config, err)
             )
 
         event_headers = {'Authorization': 'Splunk ' + token, 'Content-Type': 'application/json'}
