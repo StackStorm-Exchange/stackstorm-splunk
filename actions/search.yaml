@@ -4,7 +4,7 @@ runner_type: python-script
 description: Splunk one-shot search
 entry_point: search.py
 parameters:
-  splunk_instance:
+  host:
     type: string
     description: "Splunk instance to search (must be in config.yaml)"
     required: true
