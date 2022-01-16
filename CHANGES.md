@@ -1,5 +1,10 @@
 # Change Log
 
+## 1.1.0
+
+- Fixed bug in entry point for send_log.
+- Added support for multiple Splunk instances.
+
 ## 1.0.0
 
 * Drop Python 2.7 support
