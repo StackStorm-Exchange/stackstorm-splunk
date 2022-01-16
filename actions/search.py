@@ -38,10 +38,9 @@ class OneShotSearch(Action):
                 password=splunk_config.get('password'),
                 scheme=splunk_config.get('scheme'),
                 verify=splunk_config.get('verify'))
-        except:
+        except BaseException as err:
             raise Exception(
-                "Failed to connect to Splunk Instance {} with error {}".format(splunk_config,
-                                                                                  "TBD")
+                "Failed to connect to Splunk Instance {} with error {}".format(splunk_config, err)
             )
 
         result = self.service.jobs.oneshot(query, params={"output_mode": "json"})
