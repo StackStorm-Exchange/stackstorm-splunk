@@ -3,7 +3,7 @@
   runner_type: "python-script"
   description: "Action to send log to Splunk via API."
   enabled: true
-  entry_point: "sendlog.py"
+  entry_point: "send_log.py"
   parameters:
     instance:
       type: "string"
