@@ -9,10 +9,15 @@ to `/opt/stackstorm/configs/splunk.yaml` and edit as required.
 
 It should contain:
 
+* ``instance`` - Friendly instance name
 * ``host`` - Splunk server
-* ``port`` - Splunk API port (default 8089)
+* ``port`` - Splunk API port (default: 8089)
 * ``username`` - Splunk username
 * ``password`` - Splunk password
+* ``scheme`` - Protocol for contacting Splunk API (default: https)
+* ``verify`` - Should vertificate validation be performed (default: true)
+* ``hec_endpoint`` - The Splunk's HEC URL (default: /services/collector)
+* ``hec_port`` - The port HEC is listening on (default: 8088)
 
 You can also use dynamic values from the datastore. See the
 [docs](https://docs.stackstorm.com/reference/pack_configs.html) for more info.

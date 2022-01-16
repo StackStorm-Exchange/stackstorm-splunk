@@ -30,7 +30,7 @@ class OneShotSearch(Action):
         else:
             splunk_config = self.config['splunk_instances'].get('default')
 
-        try:    
+        try:
             self.service = client.connect(
                 host=splunk_config.get('host'),
                 port=splunk_config.get('port'),
@@ -43,7 +43,7 @@ class OneShotSearch(Action):
                 "Failed to connect to Splunk Instance {} with error {}".format(splunk_config,
                                                                                   "TBD")
             )
-        
+
         result = self.service.jobs.oneshot(query, params={"output_mode": "json"})
         reader = results.ResultsReader(result)
         search_results = []

@@ -22,7 +22,7 @@ class SendLogAction(Action):
         else:
             raise ValueError("No Splunk configuration details found")
 
-    def run(self, index, token, event):
+    def run(self, instance, index, token, event):
         # Find config details
         if instance:
             splunk_config = self.config['splunk_instances'].get(instance)
@@ -34,7 +34,7 @@ class SendLogAction(Action):
             port = splunk_config.get('hec_port')
             scheme = splunk_config.get('scheme')
             endpoint = splunk_config.get('hec_endpoint')
-            self.url = scheme + '://' + host + ':' + port + endpoint
+            self.url = scheme + '://' + host + ':' + str(port) + endpoint
         except:
             raise Exception(
                 "Failed to connect to Splunk Instance {} with error {}".format(splunk_config,
