@@ -1,12 +1,12 @@
 ---
 splunk_instances:
   default:
-    host: localhost
+    host: 172.16.0.170
     port: 8089
     username: admin
-    password: admin
+    password: J@smine.99
     scheme: https
-    verify: true
+    verify: false
     hec_endpoint: /services/collector
     hec_port: 8088
   prod:

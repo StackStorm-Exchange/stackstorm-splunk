@@ -11,14 +11,36 @@ __all__ = [
 class SendLogAction(Action):
     def __init__(self, config):
         super(SendLogAction, self).__init__(config)
-
-        host = self.config.get('host')
-        port = self.config.get('hec_port')
-        scheme = self.config.get('scheme')
-        endpoint = self.config.get('hec_endpoint')
-        self.url = scheme + '://' + host + ':' + port + endpoint
+        # Validate config is set
+        if config is None:
+            raise ValueError("No Splunk configuration details found")
+        if "splunk_instances" in config:
+            if config['splunk_instances'] is None:
+                raise ValueError("'splunk_instances' config defined but empty.")
+            else:
+                pass
+        else:
+            raise ValueError("No Splunk configuration details found")
 
     def run(self, index, token, event):
+        # Find config details
+        if instance:
+            splunk_config = self.config['splunk_instances'].get(instance)
+        else:
+            splunk_config = self.config['splunk_instances'].get('default')
+
+        try:    
+            host = splunk_config.get('host')
+            port = splunk_config.get('hec_port')
+            scheme = splunk_config.get('scheme')
+            endpoint = splunk_config.get('hec_endpoint')
+            self.url = scheme + '://' + host + ':' + port + endpoint
+        except:
+            raise Exception(
+                "Failed to connect to Splunk Instance {} with error {}".format(splunk_config,
+                                                                                  "TBD")
+            )
+
         event_headers = {'Authorization': 'Splunk ' + token, 'Content-Type': 'application/json'}
         event_payload = json.dumps({"sourcetype": "json", "index": index, "event": event})
 

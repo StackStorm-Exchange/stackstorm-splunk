@@ -11,7 +11,7 @@ __all__ = [
 class OneShotSearch(Action):
 
     def __init__(self, config):
-        super(Action, self).__init__(config)
+        super(OneShotSearch, self).__init__(config)
         # Validate config is set
         if config is None:
             raise ValueError("No Splunk configuration details found")
@@ -43,7 +43,6 @@ class OneShotSearch(Action):
                 "Failed to connect to Splunk Instance {} with error {}".format(splunk_config,
                                                                                   "TBD")
             )
-            
         
         result = self.service.jobs.oneshot(query, params={"output_mode": "json"})
         reader = results.ResultsReader(result)
