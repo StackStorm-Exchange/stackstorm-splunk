@@ -1,9 +1,9 @@
 # Change Log
 
-## 1.1.0
+## 2.0.0
 
 - Fixed bug in entry point for send_log.
-- Added support for multiple Splunk instances.
+- Added support for multiple Splunk instances. 
 
 ## 1.0.0
 
