@@ -1,34 +1,59 @@
 ---
-  host:
-    description: "Splunk server"
-    type: "string"
-    secret: false
-    required: true
-  port:
-    description: "Splunk port (default 8089)"
-    type: "integer"
-    secret: false
-    required: true
-    default: 8089
-  username:
-    description: "Splunk username"
-    type: "string"
-    secret: false
-    required: true
-  password:
-    description: "Splunk password"
-    type: "string"
-    secret: true
-    required: true
-  scheme:
-    description: "Protocol used for Splunk API - http or https"
-    type: "string"
-    secret: false
-    required: false
-    default: "https"
-  verify:
-    description: "Check the validity of the SSL certificate returned by Splunk"
-    type: "boolean"
-    secret: false
-    required: false
-    default: true
+splunk_instances:
+  type: "object"
+  required: true
+  patternProperties:
+      "^\\w+":
+        "$ref": "#/properties/splunk_instance"
+  additionalProperties: false
+
+splunk_instance:
+  type: "object"
+  properties:
+    host:
+      description: "Splunk server"
+      type: "string"
+      secret: false
+      required: true
+    port:
+      description: "Splunk port (default: 8089)"
+      type: "integer"
+      secret: false
+      required: true
+      default: 8089
+    username:
+      description: "Splunk username"
+      type: "string"
+      secret: false
+      required: true
+    password:
+      description: "Splunk password"
+      type: "string"
+      secret: true
+      required: true
+    scheme:
+      description: "Protocol used for Splunk API - http or https (default: https)"
+      type: "string"
+      secret: false
+      required: false
+      default: "https"
+    verify:
+      description: "Check the validity of the SSL certificate returned by Splunk (default: true)"
+      type: "boolean"
+      secret: false
+      required: false
+      default: true
+    hec_port:
+      description: "Port to send HEC data too (default: 8088)"
+      type: "integer"
+      secret: false
+      required: false
+      default: "8088"
+    hec_endpoint:
+      description: "HEC URL endpoint (default: /services/collector)"
+      type: "string"
+      secret: false
+      required: false
+      default: "/services/collector"
+  additionalProperties: false
+      

@@ -12,16 +12,37 @@ class OneShotSearch(Action):
 
     def __init__(self, config):
         super(OneShotSearch, self).__init__(config)
+        # Validate config is set
+        if config is None:
+            raise ValueError("No Splunk configuration details found")
+        if "splunk_instances" in config:
+            if config['splunk_instances'] is None:
+                raise ValueError("'splunk_instances' config defined but empty.")
+            else:
+                pass
+        else:
+            raise ValueError("No Splunk configuration details found")
 
-        self.service = client.connect(
-            host=self.config.get('host'),
-            port=self.config.get('port'),
-            username=self.config.get('username'),
-            password=self.config.get('password'),
-            scheme=self.config.get('scheme'),
-            verify=self.config.get('verify'))
+    def run(self, instance, query):
+        # Find config details
+        if instance:
+            splunk_config = self.config['splunk_instances'].get(instance)
+        else:
+            splunk_config = self.config['splunk_instances'].get('default')
 
-    def run(self, query):
+        try:
+            self.service = client.connect(
+                host=splunk_config.get('host'),
+                port=splunk_config.get('port'),
+                username=splunk_config.get('username'),
+                password=splunk_config.get('password'),
+                scheme=splunk_config.get('scheme'),
+                verify=splunk_config.get('verify'))
+        except BaseException as err:
+            raise Exception(
+                "Failed to connect to Splunk Instance {} with error {}".format(splunk_config, err)
+            )
+
         result = self.service.jobs.oneshot(query, params={"output_mode": "json"})
         reader = results.ResultsReader(result)
         search_results = []
