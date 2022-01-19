@@ -14,6 +14,7 @@ It should contain:
 * ``port`` - Splunk API port (default: 8089)
 * ``username`` - Splunk username
 * ``password`` - Splunk password
+* ``splunkToken`` - Bear token from splunk for authentication
 * ``scheme`` - Protocol for contacting Splunk API (default: https)
 * ``verify`` - Should vertificate validation be performed (default: true)
 * ``hec_endpoint`` - The Splunk's HEC URL (default: /services/collector)

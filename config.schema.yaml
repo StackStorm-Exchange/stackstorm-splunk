@@ -31,6 +31,11 @@ splunk_instance:
       type: "string"
       secret: true
       required: true
+    splunkToken:
+      description: "HEC URL endpoint (default: /services/collector)"
+      type: "string"
+      secret: true
+      required: false
     scheme:
       description: "Protocol used for Splunk API - http or https (default: https)"
       type: "string"
