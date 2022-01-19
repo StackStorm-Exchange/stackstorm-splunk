@@ -47,6 +47,7 @@ class FindUserAction(Action):
                 password=splunk_config.get('password')
                 scheme=splunk_config.get('scheme')
                 verify=splunk_config.get('verify')
+                splunkToken=None
         
         except BaseException as err:
             raise Exception(
@@ -57,20 +58,26 @@ class FindUserAction(Action):
 
         if not splunkToken:
             token = requests.get(base_url+"/servicesNS/admin/search/auth/login",
-	                             data={'username':username,'password':password}, verify=verify)
-            session_key = minidom.parseString(r.text).getElementsByTagName('sessionKey')[0].firstChild.nodeValue
+	                             data={'username':username,
+                                       'password':password, 
+                                       'output_mode':'json'}, verify=verify)
+            json_token = json.loads(token.text)
+            session_key = str(json_token['sessionKey'])
+
             headers = {'Accept-Language': 'application/json',
-                       'Authorization': 'splunk ' + session_key
+                       'Authorization': 'Splunk {}'.format(session_key)
             }
         else:
             headers = {'Accept-Language': 'application/json',
-                       'Authorization': 'Bearer ' + splunkToken
+                       'Authorization': 'Bearer {}'.format(splunkToken)
             }
+        
+        print(headers)
         data={'output_mode':'json'}
         r = requests.get(base_url+'/services/authentication/users/{}'.format(userName),
                          data=data, 
-                          headers=headers,
-                          verify=verify)
+                         headers=headers,
+                         verify=verify)
 
         result = pprint.pprint(json.loads(r.text))
 
