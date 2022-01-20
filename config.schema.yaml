@@ -25,12 +25,12 @@ splunk_instance:
       description: "Splunk username"
       type: "string"
       secret: false
-      required: true
+      required: false
     password:
       description: "Splunk password"
       type: "string"
       secret: true
-      required: true
+      required: false
     splunkToken:
       description: "HEC URL endpoint (default: /services/collector)"
       type: "string"
