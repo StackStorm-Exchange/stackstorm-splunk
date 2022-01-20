@@ -66,6 +66,10 @@ result:
 lhill@st2:~$
 ```
 
+### get_user
+
+Retrieves user info by name. E.g., `st2 run splunk.get_user user=admin`.
+
 ## Sensors
 
 No sensors yet...but pull requests welcome!

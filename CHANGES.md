@@ -3,7 +3,7 @@
 ## 2.1.0
 
 - Feature authenticate via bear token vs username and password
-- Feature added action find_user
+- Feature added action get_user
 
 ## 2.0.0
 
