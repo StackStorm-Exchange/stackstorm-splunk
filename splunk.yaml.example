@@ -3,12 +3,11 @@ splunk_instances:
   default:
     host: localhost
     port: 8089
-    username: admin
-    password: admin
     scheme: https
     verify: false
     hec_endpoint: /services/collector
     hec_port: 8088
+    splunkToken: "examplebearTokenfromSplunk"
   prod:
     host: 127.0.0.1
     port: 8089

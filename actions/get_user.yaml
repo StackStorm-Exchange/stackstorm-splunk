@@ -1,0 +1,16 @@
+---
+name: get_user
+runner_type: python-script
+description: Splunk retrieve user 
+entry_point: get_user.py
+parameters:
+  instance:
+    type: string
+    description: "Splunk instance if not default to search (must be in config.yaml)"
+    required: false
+    position: 0
+  userName:
+    type: string
+    description: "The user to retrieve"
+    required: true
+    position: 1
