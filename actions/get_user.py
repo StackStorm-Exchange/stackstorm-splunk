@@ -1,4 +1,5 @@
 import requests
+import urllib3
 import json
 import pprint
 
@@ -26,6 +27,7 @@ class FindUserAction(Action):
 
     def run(self, instance, userName):
         # requests.packages.urllib3.disable_warnings()
+        urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
         # Find config details
         if instance:
