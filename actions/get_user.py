@@ -25,7 +25,7 @@ class FindUserAction(Action):
             raise ValueError("No Splunk configuration details found")
 
     def run(self, instance, userName):
-        #requests.packages.urllib3.disable_warnings()
+        # requests.packages.urllib3.disable_warnings()
 
         # Find config details
         if instance:
