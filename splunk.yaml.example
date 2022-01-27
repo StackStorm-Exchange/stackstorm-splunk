@@ -1,7 +1,7 @@
 ---
 splunk_instances:
   default:
-    host: 172.16
+    host: localhost
     port: 8089
     scheme: https
     verify: false

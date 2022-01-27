@@ -1,5 +1,4 @@
 import requests
-import urllib3
 import json
 import pprint
 
@@ -13,8 +12,6 @@ __all__ = [
 class FindUserAction(SplunkBaseAction):
 
     def run(self, instance, userName):
-        # requests.packages.urllib3.disable_warnings()
-        urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
         if not instance:
             instance = "default"
