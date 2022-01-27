@@ -1,6 +1,6 @@
-import requests
 import json
 import pprint
+import requests
 
 from lib.base import SplunkBaseAction
 
