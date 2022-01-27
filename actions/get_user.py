@@ -11,17 +11,17 @@ __all__ = [
 
 class FindUserAction(SplunkBaseAction):
 
-    def run(self, instance, userName):
+    def run(self, instance, user_name):
 
         if not instance:
             instance = "default"
-        
+
         instance_details = self.instance_details(instance)
 
         print(instance_details)
         data = {'output_mode': 'json'}
         r = requests.get(instance_details['base_url'] +
-                         '/services/authentication/users/{}'.format(userName),
+                         '/services/authentication/users/{}'.format(user_name),
                          data=data,
                          headers=instance_details['headers'],
                          verify=instance_details['verify'])
