@@ -31,7 +31,7 @@ splunk_instance:
       type: "string"
       secret: true
       required: false
-    splunkToken:
+    splunk_token:
       description: "HEC URL endpoint (default: /services/collector)"
       type: "string"
       secret: true

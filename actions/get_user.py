@@ -10,8 +10,10 @@ __all__ = [
 
 
 class FindUserAction(SplunkBaseAction):
+    """Action to get user info"""
 
     def run(self, instance, user_name):
+        """stackstork run method"""
 
         if not instance:
             instance = "default"

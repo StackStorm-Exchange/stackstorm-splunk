@@ -23,6 +23,7 @@ class SendLogAction(Action):
             raise ValueError("No Splunk configuration details found")
 
     def run(self, instance, index, token, event):
+        """stackstork run method"""
         # Find config details
         if instance:
             splunk_config = self.config['splunk_instances'].get(instance)
