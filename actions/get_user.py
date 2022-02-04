@@ -12,7 +12,7 @@ __all__ = [
 class FindUserAction(SplunkBaseAction):
     """Action to get user info"""
 
-    def run(self, instance, user_name):
+    def run(self, instance, userName):
         """stackstork run method"""
 
         if not instance:
@@ -23,7 +23,7 @@ class FindUserAction(SplunkBaseAction):
         print(instance_details)
         data = {'output_mode': 'json'}
         r = requests.get(instance_details['base_url'] +
-                         '/services/authentication/users/{}'.format(user_name),
+                         '/services/authentication/users/{}'.format(userName),
                          data=data,
                          headers=instance_details['headers'],
                          verify=instance_details['verify'])

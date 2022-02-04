@@ -2,7 +2,7 @@
 
 ## 2.1.1
 
-- Refractor to modularize token retrieveal
+- Refactor to modularize token retrieveal
 
 ## 2.1.0
 

@@ -9,7 +9,7 @@ parameters:
     description: "Splunk instance if not default to search (must be in config.yaml)"
     required: false
     position: 0
-  user_name:
+  userName:
     type: string
     description: "The user to retrieve"
     required: true
