@@ -4,6 +4,7 @@ import urllib3
 
 from st2common.runners.base_action import Action
 
+
 class SplunkBaseAction(Action):
     """Base functinos for calling other api actinos."""
     def __init__(self, config):
@@ -18,7 +19,6 @@ class SplunkBaseAction(Action):
                 pass
         else:
             raise ValueError("No Splunk configuration details found")
-
 
     def instance_details(self, instance):
         """Collect instance details from config."""
@@ -45,7 +45,7 @@ class SplunkBaseAction(Action):
                 "Failed to connect to Splunk"
                 "Instance {} with error {}".format(splunk_config, err))
 
-        base_url = "{}://{}:{}/".format(scheme,host,port)
+        base_url = "{}://{}:{}/".format(scheme, host, port)
 
         if splunk_token:
             headers = self.get_header(base_url,
@@ -58,9 +58,9 @@ class SplunkBaseAction(Action):
                                       password=password)
 
         conn_info = {
-                    "base_url": base_url,
-                    "verify": verify,
-                    "headers": headers
+            "base_url": base_url,
+            "verify": verify,
+            "headers": headers
         }
 
         return conn_info
