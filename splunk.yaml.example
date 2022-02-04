@@ -7,7 +7,7 @@ splunk_instances:
     verify: false
     hec_endpoint: /services/collector
     hec_port: 8088
-    splunk_token: "examplebearTokenfromSplunk"
+    splunkToken: "examplebearTokenfromSplunk"
   prod:
     host: 127.0.0.1
     port: 8089
