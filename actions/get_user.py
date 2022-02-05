@@ -13,7 +13,7 @@ class FindUserAction(SplunkBaseAction):
     """Action to get user info"""
 
     def run(self, instance, userName):
-        """stackstork run method"""
+        """stackstorm run method"""
 
         if not instance:
             instance = "default"
