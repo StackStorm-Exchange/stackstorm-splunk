@@ -6,7 +6,7 @@ from st2common.runners.base_action import Action
 
 
 class SplunkBaseAction(Action):
-    """Base function for calling other api actinos."""
+    """Base function for calling other api actions."""
     def __init__(self, config):
         super(SplunkBaseAction, self).__init__(config)
         # Validate config is set
