@@ -14,7 +14,7 @@ __all__ = [
 class GetHecToken(SplunkBaseAction):
     """Action to get HEC token"""
     def __init__(self, config):
-        super(SplunkBaseAction, self).__init__(config)
+        super(GetHecToken, self).__init__(config)
         # Validate config is set
         if config is None:
             raise ValueError("No Splunk configuration details found")
@@ -31,6 +31,9 @@ class GetHecToken(SplunkBaseAction):
         """Collect instance details from config."""
         # requests.packages.urllib3.disable_warnings()
         urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
+
+        if not instance:
+            instance = "default"
 
         # Build the base splunk url
         splunk_config = self.config['splunk_instances'].get(instance)
@@ -60,12 +63,15 @@ class GetHecToken(SplunkBaseAction):
                                     data=data,
                                     verify=False,
                                     auth=(username, password))
+        if response.status_code == 201:
 
-        dom=xml.dom.minidom.parseString(response.text)
+            dom=xml.dom.minidom.parseString(response.text)
 
-        keys=dom.getElementsByTagName('s:key')
+            keys=dom.getElementsByTagName('s:key')
 
-        for n in keys:
-            if n.getAttribute('name') == 'token':
-                myToken = n.childNodes[0].nodeValue
+            for n in keys:
+                if n.getAttribute('name') == 'token':
+                    myToken = n.childNodes[0].nodeValue
+        else:
+            myToken = response.status_code
         return (myToken)

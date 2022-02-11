@@ -1,8 +1,8 @@
 ---
-name: get_splunk_hec_token
+name: get_hec_token
 runner_type: python-script
 description: Splunk get HEC token
-entry_point: get_splunk_hec_token.py
+entry_point: get_hec_token.py
 parameters:
   instance:
     type: string
