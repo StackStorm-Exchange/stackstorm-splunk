@@ -8,7 +8,7 @@ __all__ = [
     'FindUserAction'
 ]
 
-
+#
 class FindUserAction(SplunkBaseAction):
     """Action to get user info"""
 
