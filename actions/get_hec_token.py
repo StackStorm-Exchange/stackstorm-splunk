@@ -53,7 +53,7 @@ class GetHecToken(SplunkBaseAction):
         headers = {'Accept-Language': 'application/json'}
 
         data = {
-          'name': 'test-py',
+          'name': 'stackstorm',
           'index': 'main',
           'indexes': 'main,summary'
         }
@@ -63,15 +63,21 @@ class GetHecToken(SplunkBaseAction):
                                     data=data,
                                     verify=False,
                                     auth=(username, password))
-        if response.status_code == 201:
+        if response.status_code != 201:
 
-            dom=xml.dom.minidom.parseString(response.text)
+            response = requests.get(base_url + '/servicesNS/nobody/search/data/inputs/http',
+                                        headers=headers,
+                                        data=data,
+                                        verify=False,
+                                        auth=(username, password))
 
-            keys=dom.getElementsByTagName('s:key')
+        dom=xml.dom.minidom.parseString(response.text)
 
-            for n in keys:
-                if n.getAttribute('name') == 'token':
-                    myToken = n.childNodes[0].nodeValue
-        else:
-            myToken = response.status_code
+        keys=dom.getElementsByTagName('s:key')
+
+        for n in keys:
+            if n.getAttribute('name') == 'token':
+                myToken = n.childNodes[0].nodeValue
+
+
         return (myToken)
