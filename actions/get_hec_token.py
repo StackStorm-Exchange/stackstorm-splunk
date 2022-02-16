@@ -23,7 +23,7 @@ class GetHecToken(SplunkBaseAction):
 
         # Get insstance details
         instance_details = self.instance_details(instance)
-        
+
         data = {
           'name': 'stackstorm',
           'index': 'main',
@@ -36,7 +36,7 @@ class GetHecToken(SplunkBaseAction):
                                  headers=instance_details['headers'],
                                  verify=instance_details['verify'])
         if response.status_code != 201:
-            response = requests.get(base_url +
+            response = requests.get(instance_details['base_url'] +
                                     '/servicesNS/nobody/search/data/inputs/http',
                                     data=data,
                                     headers=instance_details['headers'],
