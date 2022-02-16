@@ -34,19 +34,16 @@ class GetHecToken(SplunkBaseAction):
 
         response = requests.post(instance_details['base_url'] +
                                  '/servicesNS/nobody/search/data/inputs/http',
-                                 headers=headers,
+                                 headers=instance_details['headers'],
                                  data=data,
-                                 verify=instance_details['verify'],
-                                 auth=(username=instance_details['username'],
-                                 password=instance_details['password'])
+                                 verify=instance_details['verify'])
+
         if response.status_code != 201:
-            response = requests.get(base_url +
+            response = requests.get(instance_details['base_url'] +
                                     '/servicesNS/nobody/search/data/inputs/http',
-                                    headers=headers,
+                                    headers=instance_details['headers'],
                                     data=data,
-                                    verify=instance_details['verify'],
-                                    auth=(username=instance_details['username'],
-                                    password=instance_details['password'])
+                                    verify=instance_details['verify'])
 
         dom=xml.dom.minidom.parseString(response.text)
 

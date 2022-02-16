@@ -20,7 +20,6 @@ class FindUserAction(SplunkBaseAction):
 
         instance_details = self.instance_details(instance)
 
-        print(instance_details)
         data = {'output_mode': 'json'}
         r = requests.get(instance_details['base_url'] +
                          '/services/authentication/users/{}'.format(userName),
