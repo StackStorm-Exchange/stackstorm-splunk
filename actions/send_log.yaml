@@ -1,5 +1,5 @@
 ---
-  name: "sendlog"
+  name: "send_log"
   runner_type: "python-script"
   description: "Action to send log to Splunk via API."
   enabled: true
