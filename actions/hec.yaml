@@ -1,0 +1,11 @@
+---
+name: hec
+runner_type: python-script
+description: Splunk get HEC token
+entry_point: hec.py
+parameters:
+  instance:
+    type: string
+    description: "Splunk instance if not default to search (must be in config.yaml)"
+    required: false
+    position: 0
