@@ -1,5 +1,9 @@
 # Change Log
 
+## 2.1.2
+
+- Added action to generate or get a HEC token
+
 ## 2.1.1
 
 - Refactor to modularize token retrieval
@@ -33,7 +37,7 @@
 ## 0.5.1
 
 - Removed unused `version` string from `config.schema.yaml
- 
+
 ## 0.5.0
 
 - Update splunk.search to use splunklib.results.ResultsReader to return formatted results,
