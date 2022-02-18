@@ -23,10 +23,9 @@ class GetHecToken(SplunkBaseAction):
         # Get insstance details
         instance_details = self.instance_details(instance)
 
-        data = {
-          'name': 'stackstorm',
-          'index': 'main',
-          'indexes': 'main,summary'
+        data = {'name': 'stackstorm',
+                'index': 'main',
+                'indexes': 'main,summary'
         }
 
         response = requests.post(instance_details['base_url'] +
