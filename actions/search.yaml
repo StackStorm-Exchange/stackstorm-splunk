@@ -14,3 +14,9 @@ parameters:
     description: "Search query (e.g. 'search * | head 10')"
     required: true
     position: 1
+  count:
+    type: integer
+    description: "The maximum number of items to return"
+    required: true
+    position: 2
+    default: 100
