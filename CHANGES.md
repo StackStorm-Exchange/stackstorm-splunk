@@ -1,5 +1,9 @@
 # Change Log
 
+## 2.2.0
+
+- Add `count` parameter to Oneshot search
+
 ## 2.1.2
 
 - Added action to generate or get a HEC token
