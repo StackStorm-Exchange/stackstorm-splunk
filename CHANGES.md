@@ -1,5 +1,10 @@
 # Change Log
 
+## 2.2.1
+
+- Refactor params for Oneshot search
+- Change ResultReader to JSONResultReader
+
 ## 2.2.0
 
 - Add `count` parameter to Oneshot search
