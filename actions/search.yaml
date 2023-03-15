@@ -20,3 +20,8 @@ parameters:
     required: true
     position: 2
     default: 100
+  offset:
+    type: integer
+    description: "A number that specifies the index of the first entity to return"
+    position: 3
+    default: 0
