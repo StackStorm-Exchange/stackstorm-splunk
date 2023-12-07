@@ -23,7 +23,7 @@ class OneShotSearch(Action):
         else:
             raise ValueError("No Splunk configuration details found")
 
-    def run(self, instance, query, count):
+    def run(self, instance, query, count, offset):
         """stackstorm run method"""
         # Find config details
         if instance:
@@ -52,8 +52,8 @@ class OneShotSearch(Action):
                 "Failed to connect to Splunk Instance {} with error {}".format(splunk_config, err)
             )
 
-        result = self.service.jobs.oneshot(query, count=count, params={"output_mode": "json"})
-        reader = results.ResultsReader(result)
+        result = self.service.jobs.oneshot(query, count=count, offset=offset, output_mode='json')
+        reader = results.JSONResultsReader(result)
         search_results = []
 
         for item in reader:
