@@ -1,6 +1,6 @@
 # Change Log
 
-## 2.2.1
+## 2.3.0
 
 - Refactor params for Oneshot search
 - Change ResultReader to JSONResultReader
