@@ -52,7 +52,7 @@ class OneShotSearch(Action):
                 "Failed to connect to Splunk Instance {} with error {}".format(splunk_config, err)
             )
 
-        result = self.service.jobs.oneshot(query, params={"output_mode": "json", "count": count})
+        result = self.service.jobs.oneshot(query, count=count, params={"output_mode": "json"})
         reader = results.ResultsReader(result)
         search_results = []
 
